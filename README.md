@@ -1,7 +1,6 @@
 # ChatRoutes SDK
 
-> 🧩 Build **branching AI conversations** directly into your app.
-> Manage conversations, branches, and parallel AI responses via the official [ChatRoutes API](https://api.chatroutes.com).
+> 🧩 **Build branching, forkable AI conversations directly into your app** — using the same APIs that power [chatroutes.com](https://chatroutes.com).
 
 [![npm version](https://badge.fury.io/js/chatroutes-sdk.svg)](https://www.npmjs.com/package/chatroutes-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -12,24 +11,33 @@
 
 ---
 
-**Keywords:** LLM, branching AI, OpenAI, Claude, conversation tree, chat SDK, AI developer tools, research assistant, multi-model AI
+**ChatRoutes SDK** is a developer-first gateway to the ChatRoutes ecosystem, giving you infrastructure access to:
 
-🎮 **Try it live:** [ChatRoutes Demo](https://chatroutes.com/demo)
+✅ **Authentication** via API keys (from user dashboard)
+✅ **Conversation management** (create, list, delete)
+✅ **Branching / forking / merging** conversation paths
+✅ **Parallel responses** across multiple AI models
+✅ **Streaming responses** (real-time SSE)
+✅ **Conversation trees** (visualize and navigate branches)
+
+Perfect for:
+- 🔬 Researchers comparing LLM responses
+- ✍️ Writers exploring narrative branches
+- 💻 Developers building chat UIs or AI copilots
+
+**Keywords:** LLM, branching AI, OpenAI, Claude, conversation tree, chat SDK, AI developer tools, research assistant, multi-model AI
 
 ---
 
-## 💡 Why Use ChatRoutes SDK?
+## 🔑 Get an API Key
 
-Most AI chats are linear. ChatRoutes lets you:
-- 🌱 Fork, compare, and merge AI conversation branches.
-- 🔁 Run parallel responses across multiple models.
-- 🧠 Visualize conversation trees programmatically.
-- 🧩 Use the same APIs that power [ChatRoutes.com](https://chatroutes.com).
+To use ChatRoutes SDK, sign up at [chatroutes.com](https://chatroutes.com) and obtain your API key from the **Dashboard → API Keys** section.
 
-Perfect for:
-- Researchers comparing LLM responses
-- Writers exploring narrative branches
-- Developers building chat UIs or AI copilots
+```typescript
+const client = new ChatRoutesClient({ apiKey: 'cr_prod_sk_xxx' });
+```
+
+> 🎮 **Try it live:** [ChatRoutes Demo](https://chatroutes.com/demo)
 
 ---
 
