@@ -67,34 +67,13 @@ console.log(response.assistantMessage.content);
 
 ## 📋 Prerequisites
 
-You must have a ChatRoutes account to use this SDK:
+**You must have a ChatRoutes account to use this SDK:**
 
 1. Register for free at [chatroutes.com](https://chatroutes.com)
 2. Generate an API key from your dashboard
 3. Use the API key to initialize the SDK
 
-> ⚠️ Guest sessions are available for testing (see below).
-> Use API keys for production integrations.
-
-## 🧪 Guest Mode (No API Key Required)
-
-You can explore the API as a guest without authentication:
-
-```typescript
-const client = new ChatRoutesClient({ guest: true });
-const session = await client.guest.start();
-
-const conv = await client.guest.createConversation(session.token, {
-  title: 'Guest Chat'
-});
-
-await client.guest.sendMessage(session.token, conv.id, {
-  content: 'Hello world'
-});
-```
-
-> ⚠️ Guest sessions are rate-limited and reset daily.
-> Ideal for demos, prototypes, and testing.
+> ⚠️ **API key required** - No guest mode available. All users must register for a free account to obtain an API key.
 
 ## 🎯 Features
 
