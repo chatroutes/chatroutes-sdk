@@ -19,6 +19,10 @@ export class MessagesAPI {
       throw new Error(response.message || 'Failed to send message');
     }
 
+    if (!response.data.message) {
+      throw new Error('Invalid response format: missing message field');
+    }
+
     return response.data;
   }
 
@@ -28,44 +32,19 @@ export class MessagesAPI {
     onChunk: (chunk: StreamChunk) => void,
     onComplete?: (response: SendMessageResponse) => void
   ): Promise<void> {
-    let fullContent = '';
-    const userMessageId = '';
-    const assistantMessageId = '';
-
     await this.client.stream(
       `/api/v1/conversations/${conversationId}/messages/stream`,
       data,
       (chunk: StreamChunk) => {
-        if (chunk.choices?.[0]?.delta?.content) {
-          fullContent += chunk.choices[0].delta.content;
-        }
-
         onChunk(chunk);
 
-        if (chunk.choices?.[0]?.finish_reason) {
-          if (onComplete) {
-            const completeResponse: SendMessageResponse = {
-              userMessage: {
-                id: userMessageId || `msg_${Date.now()}_user`,
-                conversationId,
-                role: 'user',
-                content: data.content,
-                createdAt: new Date().toISOString(),
-              },
-              assistantMessage: {
-                id: assistantMessageId || `msg_${Date.now()}_assistant`,
-                conversationId,
-                role: 'assistant',
-                content: fullContent,
-                createdAt: new Date().toISOString(),
-                metadata: {
-                  model: chunk.model,
-                  finishReason: chunk.choices[0].finish_reason,
-                },
-              },
-            };
-            onComplete(completeResponse);
-          }
+        if (chunk.type === 'complete' && onComplete && chunk.message && chunk.usage && chunk.model) {
+          const completeResponse: SendMessageResponse = {
+            message: chunk.message,
+            usage: chunk.usage,
+            model: chunk.model,
+          };
+          onComplete(completeResponse);
         }
       }
     );

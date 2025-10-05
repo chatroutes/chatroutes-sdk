@@ -29,16 +29,16 @@ export class ConversationsAPI {
       params
     );
 
-    if (!response.success || !response.data) {
-      throw new Error(response.message || 'Failed to list conversations');
+    if (response.data && 'conversations' in response.data) {
+      return {
+        data: response.data.conversations,
+        total: response.data.total,
+        page: response.data.page,
+        limit: response.data.limit,
+      };
     }
 
-    return {
-      data: response.data.conversations,
-      total: response.data.total,
-      page: response.data.page,
-      limit: response.data.limit,
-    };
+    throw new Error('Failed to list conversations');
   }
 
   async get(conversationId: string): Promise<Conversation> {

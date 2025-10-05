@@ -22,9 +22,9 @@ async function basicChat() {
     temperature: 0.7
   });
 
-  console.log('\n📝 User:', response.userMessage.content);
-  console.log('\n🤖 Assistant:', response.assistantMessage.content);
-  console.log('\n📊 Tokens used:', response.assistantMessage.tokenCount);
+  console.log('\n🤖 Assistant:', response.message.content);
+  console.log('\n📊 Model:', response.model);
+  console.log('\n📊 Usage:', response.usage);
 }
 
 basicChat().catch(console.error);

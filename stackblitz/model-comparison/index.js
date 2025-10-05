@@ -1,12 +1,14 @@
-import { ChatRoutesClient } from '@chatroutes/sdk';
+import { ChatRoutesClient } from 'chatroutes-sdk';
 
 const client = new ChatRoutesClient({
-  apiKey: process.env.CHATROUTES_API_KEY!
+  apiKey: process.env.CHATROUTES_API_KEY || 'your-api-key-here'
 });
 
 async function compareModels() {
-  console.log('🔬 Comparing GPT-5 vs Claude Opus 4.1\n');
+  console.log('🔬 ChatRoutes SDK - Model Comparison\n');
+  console.log('Comparing GPT-5 vs Claude Opus 4.1\n');
 
+  // Create a conversation
   const conversation = await client.conversations.create({
     title: 'Model Comparison',
     model: 'gpt-5'
@@ -51,9 +53,10 @@ async function compareModels() {
 
   console.log('='.repeat(60) + '\n');
   console.log('✅ Comparison complete!');
+  console.log(`\n🌳 View the full conversation tree at: https://chatroutes.com/c/${conversation.id}`);
 
-  // Cleanup
-  await client.conversations.delete(conversation.id);
+  // Cleanup (optional)
+  // await client.conversations.delete(conversation.id);
 }
 
 compareModels().catch(console.error);

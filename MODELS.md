@@ -1,15 +1,17 @@
 # Available AI Models
 
-**Last Updated:** 2025-01-02
+**Last Updated:** 2025-10-05
 **SDK Version:** 0.1.0+
 
 ---
 
 ## Current Production Models
 
-ChatRoutes currently supports **2 AI models** in production:
+ChatRoutes supports multiple AI models from OpenAI and Anthropic:
 
-### 1. GPT-5 (OpenAI)
+### OpenAI Models
+
+#### GPT-5
 - **Model ID:** `gpt-5`
 - **Provider:** OpenAI
 - **Type:** Latest generation language model
@@ -26,13 +28,22 @@ const response = await client.messages.send(conversationId, {
 });
 ```
 
-### 2. Claude Opus 4.1 (Anthropic)
-- **Model ID:** `claude-opus-4-1`
+### Anthropic Claude Models
+
+#### Claude 4 Series
+- **Model IDs:** `claude-opus-4-1`, `claude-opus-4`, `claude-opus-4-0`, `claude-sonnet-4-5`, `claude-sonnet-4-0`
 - **Provider:** Anthropic
-- **Type:** Latest Claude flagship model
+- **Type:** Latest Claude flagship models
 - **Streaming:** ✅ Supported
 - **Context:** Extended context window
 - **Best For:** Analysis, creative writing, detailed explanations
+
+#### Claude 3 Series
+- **Model IDs:** `claude-3-7-sonnet-latest`, `claude-3-5-haiku-latest`
+- **Provider:** Anthropic
+- **Type:** Claude 3 models
+- **Streaming:** ✅ Supported
+- **Best For:** Balanced performance and cost
 
 **Example:**
 ```typescript
@@ -54,12 +65,18 @@ const response = await client.messages.send(conversationId, {
 ✅ Fast responses needed
 ✅ Standard use cases
 
-### When to use Claude Opus 4.1
+### When to use Claude 4 Series (Opus/Sonnet)
 ✅ Long-form content analysis
 ✅ Creative writing and storytelling
 ✅ Detailed explanations
 ✅ Nuanced responses
 ✅ Complex reasoning tasks
+
+### When to use Claude 3 Series
+✅ Cost-effective solutions
+✅ Balanced performance
+✅ Quick responses
+✅ Standard conversational tasks
 
 ---
 
@@ -201,7 +218,11 @@ try {
 } catch (error) {
   if (error instanceof ValidationError) {
     console.error('Invalid model:', error.message);
-    // Error: Invalid model. Supported: gpt-5, claude-opus-4-1
+    // Error: Invalid model. Supported models include:
+    // gpt-5
+    // claude-opus-4-1, claude-opus-4, claude-opus-4-0
+    // claude-sonnet-4-5, claude-sonnet-4-0
+    // claude-3-7-sonnet-latest, claude-3-5-haiku-latest
   }
 }
 ```
@@ -226,5 +247,9 @@ try {
 
 ---
 
-**Current Models:** 2 (GPT-5, Claude Opus 4.1)
+**Current Supported Models:**
+- **OpenAI:** gpt-5
+- **Claude 4:** claude-opus-4-1, claude-opus-4, claude-opus-4-0, claude-sonnet-4-5, claude-sonnet-4-0
+- **Claude 3:** claude-3-7-sonnet-latest, claude-3-5-haiku-latest
+
 **More models:** Coming in future releases

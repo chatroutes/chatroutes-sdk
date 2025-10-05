@@ -25,12 +25,12 @@ export type {
   Message,
   SendMessageRequest,
   SendMessageResponse,
+  UsageStats,
   StreamChunk,
   Branch,
   CreateBranchRequest,
   ForkConversationRequest,
   ConversationTree,
-  TreeNode,
   ListConversationsParams,
   PaginatedResponse,
 } from './types';

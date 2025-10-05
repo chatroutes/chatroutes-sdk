@@ -79,23 +79,24 @@ export interface SendMessageRequest {
   branchId?: string;
 }
 
+export interface UsageStats {
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+}
+
 export interface SendMessageResponse {
-  userMessage: Message;
-  assistantMessage: Message;
+  message: Message;
+  usage: UsageStats;
+  model: string;
 }
 
 export interface StreamChunk {
-  id: string;
-  model: string;
-  choices: Array<{
-    delta: {
-      content?: string;
-      role?: string;
-    };
-    finish_reason?: string;
-    index: number;
-  }>;
-  created: number;
+  type: 'content' | 'complete';
+  content?: string;
+  model?: string;
+  message?: Message;
+  usage?: UsageStats;
 }
 
 export interface Branch {
@@ -127,23 +128,8 @@ export interface ForkConversationRequest {
 
 export interface ConversationTree {
   conversation: Conversation;
-  tree: TreeNode;
-  metadata: {
-    totalNodes: number;
-    totalBranches: number;
-    maxDepth: number;
-  };
-}
-
-export interface TreeNode {
-  id: string;
-  content: string;
-  role: string;
-  children: TreeNode[];
-  branchInfo?: {
-    branchId: string;
-    branchName: string;
-  };
+  branches: Branch[];
+  mainBranch: Branch;
 }
 
 export interface ListConversationsParams {

@@ -1,0 +1,13 @@
+{
+  "name": "chatroutes-sdk-branching",
+  "version": "1.0.0",
+  "description": "ChatRoutes SDK - Conversation Branching Example",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chatroutes-sdk": "^0.1.0"
+  }
+}

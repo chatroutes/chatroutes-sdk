@@ -43,6 +43,19 @@ const client = new ChatRoutesClient({ apiKey: 'cr_prod_sk_xxx' });
 
 ## 🚀 Quick Start
 
+### ⚡ Try It Now on StackBlitz
+
+Get started instantly with our ready-to-run examples:
+
+| Example | Description | Link |
+|---------|-------------|------|
+| **Basic Chat** | Simple conversation creation and messaging | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/basic-example) |
+| **Streaming** | Real-time SSE streaming responses | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/streaming-example) |
+| **Branching** | Fork conversations and explore alternatives | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/branching-example) |
+| **Model Comparison** | Compare GPT-5 vs Claude side-by-side | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/model-comparison) |
+
+> **Note:** You'll need a ChatRoutes API key to run the examples. Get one free at [chatroutes.com](https://chatroutes.com).
+
 ### Installation
 
 ```bash
@@ -70,7 +83,9 @@ const response = await client.messages.send(conversation.id, {
   model: 'gpt-5'
 });
 
-console.log(response.assistantMessage.content);
+console.log(response.message.content);
+console.log('Model:', response.model);
+console.log('Usage:', response.usage);
 ```
 
 ## 📋 Prerequisites
@@ -141,21 +156,22 @@ const response = await client.messages.send(conversationId, {
   maxTokens: 1000
 });
 
-console.log(response.userMessage.content);
-console.log(response.assistantMessage.content);
+console.log(response.message.content);
+console.log('Usage:', response.usage);
 
 // Stream responses (real-time)
 await client.messages.stream(
   conversationId,
   { content: 'Write a long article about AI', model: 'gpt-5' },
   (chunk) => {
-    if (chunk.choices?.[0]?.delta?.content) {
-      process.stdout.write(chunk.choices[0].delta.content);
+    if (chunk.type === 'content' && chunk.content) {
+      process.stdout.write(chunk.content);
     }
   },
   (complete) => {
     console.log('\n\nStreaming complete!');
-    console.log('Full response:', complete.assistantMessage.content);
+    console.log('Full response:', complete.message.content);
+    console.log('Tokens:', complete.usage.totalTokens);
   }
 );
 ```
@@ -189,10 +205,9 @@ const messages = await client.branches.getMessages(conversationId, branch.id);
 ```typescript
 const tree = await client.conversations.getTree(conversationId);
 
-console.log(tree.metadata);
-// { totalNodes: 15, totalBranches: 3, maxDepth: 5 }
-
-console.log(tree.tree); // Recursive structure
+console.log('Conversation:', tree.conversation.title);
+console.log('Total branches:', tree.branches.length);
+console.log('Main branch:', tree.mainBranch.title);
 ```
 
 ## 🔧 Configuration
@@ -255,10 +270,10 @@ async function main() {
     content: 'Explain branching AI'
   });
 
-  console.log('Response:', msg.assistantMessage.content);
+  console.log('Response:', msg.message.content);
 
   const branch = await client.branches.fork(conv.id, {
-    forkPointMessageId: msg.userMessage.id,
+    forkPointMessageId: msg.message.id,
     title: 'Alternative version'
   });
 

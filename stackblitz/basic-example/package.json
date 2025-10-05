@@ -1,0 +1,13 @@
+{
+  "name": "chatroutes-sdk-quickstart",
+  "version": "1.0.0",
+  "description": "ChatRoutes SDK - Basic Quickstart Example",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chatroutes-sdk": "^0.1.0"
+  }
+}
