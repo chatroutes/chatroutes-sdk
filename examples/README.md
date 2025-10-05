@@ -86,7 +86,11 @@ npx tsx examples/branching.ts
 ### Authentication
 
 ```typescript
+// When using the published package
 import { ChatRoutesClient } from 'chatroutes';
+
+// When running examples from this repository
+import { ChatRoutesClient } from '../src/index';
 
 const client = new ChatRoutesClient({
   apiKey: process.env.CHATROUTES_API_KEY!
