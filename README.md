@@ -43,19 +43,6 @@ const client = new ChatRoutesClient({ apiKey: 'cr_prod_sk_xxx' });
 
 ## 🚀 Quick Start
 
-### 📚 Code Examples
-
-Browse ready-to-use code examples:
-
-| Example | Description | View Code |
-|---------|-------------|-----------|
-| **Basic Chat** | Simple conversation creation and messaging | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/basic-example) |
-| **Streaming** | Real-time SSE streaming responses | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/streaming-example) |
-| **Branching** | Fork conversations and explore alternatives | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/branching-example) |
-| **Model Comparison** | Compare GPT-5 vs Claude side-by-side | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/model-comparison) |
-
-> **Note:** StackBlitz examples are for code reference. Due to CORS limitations, run examples locally for full functionality. See [examples/](examples/) directory.
-
 ### Installation
 
 ```bash
@@ -251,7 +238,26 @@ try {
 }
 ```
 
-## 🧩 Example — Complete Chat Demo
+## 📚 Examples
+
+Full working examples are available in the [`examples/`](examples/) directory:
+
+- **[basic-chat.ts](examples/basic-chat.ts)** - Simple conversation creation and messaging
+- **[streaming-chat.ts](examples/streaming-chat.ts)** - Real-time SSE streaming responses
+- **[branching.ts](examples/branching.ts)** - Fork conversations and explore alternatives
+- **[model-comparison.ts](examples/model-comparison.ts)** - Compare GPT-5 vs Claude side-by-side
+
+### Run Examples Locally
+
+```bash
+git clone https://github.com/chatroutes/chatroutes-sdk.git
+cd chatroutes-sdk/examples
+npm install
+export CHATROUTES_API_KEY="your-api-key-here"
+npx tsx basic-chat.ts
+```
+
+### Complete Chat Demo
 
 ```typescript
 import { ChatRoutesClient } from 'chatroutes';
