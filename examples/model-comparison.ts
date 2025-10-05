@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { ChatRoutesClient } from '@chatroutes/sdk';
 
 const client = new ChatRoutesClient({

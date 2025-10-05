@@ -4,28 +4,41 @@ This directory contains example code demonstrating how to use the ChatRoutes SDK
 
 ## Prerequisites
 
-1. **Install the SDK**
-   ```bash
-   npm install chatroutes
-   ```
-
-2. **Get an API Key**
+1. **Get an API Key**
    - Register at [chatroutes.com](https://chatroutes.com)
    - Generate an API key from your dashboard
 
-3. **Set Environment Variable**
+2. **Set up the project**
    ```bash
-   # On Unix/macOS
-   export CHATROUTES_API_KEY="your_api_key_here"
+   # From the repository root
+   npm install
 
-   # On Windows (PowerShell)
-   $env:CHATROUTES_API_KEY="your_api_key_here"
+   # Copy the example .env file
+   cp .env.example .env
 
-   # Or create a .env file
-   echo "CHATROUTES_API_KEY=your_api_key_here" > .env
+   # Edit .env and add your API key
+   # CHATROUTES_API_KEY=your_api_key_here
    ```
 
+**Alternative:** Set environment variable directly
+```bash
+# On Unix/macOS
+export CHATROUTES_API_KEY="your_api_key_here"
+
+# On Windows (PowerShell)
+$env:CHATROUTES_API_KEY="your_api_key_here"
+```
+
 ## Running Examples
+
+All examples can be run from the repository root:
+
+```bash
+npx tsx examples/basic-chat.ts
+npx tsx examples/streaming-chat.ts
+npx tsx examples/branching.ts
+npx tsx examples/model-comparison.ts
+```
 
 ### Basic Chat
 

@@ -250,11 +250,28 @@ Full working examples are available in the [`examples/`](examples/) directory:
 ### Run Examples Locally
 
 ```bash
+# Clone the repository
 git clone https://github.com/chatroutes/chatroutes-sdk.git
-cd chatroutes-sdk/examples
+cd chatroutes-sdk
+
+# Install dependencies
 npm install
-export CHATROUTES_API_KEY="your-api-key-here"
-npx tsx basic-chat.ts
+
+# Set up your API key
+cp .env.example .env
+# Edit .env and add your API key
+
+# Run any example
+npx tsx examples/basic-chat.ts
+npx tsx examples/streaming-chat.ts
+npx tsx examples/branching.ts
+npx tsx examples/model-comparison.ts
+```
+
+**Alternative:** Set API key via environment variable:
+```bash
+export CHATROUTES_API_KEY="your-api-key-here"  # Unix/macOS
+$env:CHATROUTES_API_KEY="your-api-key-here"    # Windows PowerShell
 ```
 
 ### Complete Chat Demo
