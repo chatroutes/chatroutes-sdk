@@ -1,6 +1,6 @@
 {
   "name": "chatroutes-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Official TypeScript/JavaScript SDK for ChatRoutes - Conversation Branching Platform",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
