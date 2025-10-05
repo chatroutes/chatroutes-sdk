@@ -6,7 +6,7 @@ This directory contains example code demonstrating how to use the ChatRoutes SDK
 
 1. **Install the SDK**
    ```bash
-   npm install @chatroutes/sdk
+   npm install chatroutes
    ```
 
 2. **Get an API Key**
@@ -73,7 +73,7 @@ npx tsx examples/branching.ts
 ### Authentication
 
 ```typescript
-import { ChatRoutesClient } from '@chatroutes/sdk';
+import { ChatRoutesClient } from 'chatroutes';
 
 const client = new ChatRoutesClient({
   apiKey: process.env.CHATROUTES_API_KEY!
@@ -202,7 +202,7 @@ import {
   NotFoundError,
   RateLimitError,
   NetworkError
-} from '@chatroutes/sdk';
+} from 'chatroutes';
 
 try {
   const conv = await client.conversations.get('invalid-id');

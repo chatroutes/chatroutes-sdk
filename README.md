@@ -2,12 +2,12 @@
 
 > 🧩 **Build branching, forkable AI conversations directly into your app** — using the same APIs that power [chatroutes.com](https://chatroutes.com).
 
-[![npm version](https://badge.fury.io/js/chatroutes-sdk.svg)](https://www.npmjs.com/package/chatroutes-sdk)
+[![npm version](https://badge.fury.io/js/chatroutes.svg)](https://www.npmjs.com/package/chatroutes)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/chatroutes/chatroutes-sdk)](https://github.com/chatroutes/chatroutes-sdk/issues)
 [![Docs](https://img.shields.io/badge/docs-docs.chatroutes.com-blue)](https://docs.chatroutes.com)
 ![Status: Beta](https://img.shields.io/badge/status-beta-orange)
-![Version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue)
+![Version 0.2.0](https://img.shields.io/badge/version-0.2.0-blue)
 
 ---
 
@@ -59,13 +59,13 @@ Get started instantly with our ready-to-run examples:
 ### Installation
 
 ```bash
-npm install chatroutes-sdk
+npm install chatroutes
 ```
 
 ### Basic Usage
 
 ```typescript
-import { ChatRoutesClient } from 'chatroutes-sdk';
+import { ChatRoutesClient } from 'chatroutes';
 
 const client = new ChatRoutesClient({
   apiKey: 'your-api-key'
@@ -232,7 +232,7 @@ import {
   NotFoundError,
   RateLimitError,
   NetworkError
-} from 'chatroutes-sdk';
+} from 'chatroutes';
 
 try {
   const conv = await client.conversations.get('invalid-id');
@@ -254,7 +254,7 @@ try {
 ## 🧩 Example — Complete Chat Demo
 
 ```typescript
-import { ChatRoutesClient } from 'chatroutes-sdk';
+import { ChatRoutesClient } from 'chatroutes';
 
 async function main() {
   const client = new ChatRoutesClient({

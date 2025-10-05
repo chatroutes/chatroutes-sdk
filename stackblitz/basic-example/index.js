@@ -1,4 +1,4 @@
-import { ChatRoutesClient } from 'chatroutes-sdk';
+import { ChatRoutesClient } from 'chatroutes';
 
 // Initialize the client with your API key
 const client = new ChatRoutesClient({

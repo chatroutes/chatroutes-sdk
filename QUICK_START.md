@@ -53,12 +53,12 @@ npm publish --access public
 ## ✅ Done!
 
 Your SDK is now live at:
-- 📦 **npm:** https://npmjs.com/package/@chatroutes/sdk
+- 📦 **npm:** https://npmjs.com/package/chatroutes
 - 🐙 **GitHub:** https://github.com/chatroutes/chatroutes-sdk
 
 Install with:
 ```bash
-npm install @chatroutes/sdk
+npm install chatroutes
 ```
 
 ---
@@ -84,7 +84,7 @@ npm init -y
 npm install ../chatroutes-sdk-0.1.0.tgz
 
 # Verify it works
-node -e "const { ChatRoutesClient } = require('@chatroutes/sdk'); console.log('✅ Works!');"
+node -e "const { ChatRoutesClient } = require('chatroutes'); console.log('✅ Works!');"
 ```
 
 ---

@@ -1,8 +1,29 @@
 # TypeScript SDK Update - 2025-10-05
 
 **Date:** October 5, 2025
-**SDK Version:** 0.1.0
-**Type:** Critical Bug Fixes & API Alignment
+**SDK Version:** 0.2.0 (Breaking Changes)
+**Type:** Critical Bug Fixes & API Alignment + Package Rename
+
+---
+
+## 🎉 BREAKING CHANGE: Package Renamed
+
+The npm package has been renamed from `chatroutes-sdk` to `chatroutes` for consistency with the Python SDK.
+
+**Migration:**
+
+```bash
+# Old
+npm install chatroutes-sdk
+
+# New
+npm install chatroutes
+```
+
+Your imports remain unchanged:
+```typescript
+import { ChatRoutesClient } from 'chatroutes';
+```
 
 ---
 
