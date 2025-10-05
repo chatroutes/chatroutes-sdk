@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { ChatRoutesClient } from '@chatroutes/sdk';
+import { ChatRoutesClient } from 'chatroutes';
 
 const client = new ChatRoutesClient({
   apiKey: process.env.CHATROUTES_API_KEY!
