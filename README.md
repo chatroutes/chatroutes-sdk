@@ -43,18 +43,18 @@ const client = new ChatRoutesClient({ apiKey: 'cr_prod_sk_xxx' });
 
 ## 🚀 Quick Start
 
-### ⚡ Try It Now on StackBlitz
+### 📚 Code Examples
 
-Get started instantly with our ready-to-run examples:
+Browse ready-to-use code examples:
 
-| Example | Description | Link |
-|---------|-------------|------|
-| **Basic Chat** | Simple conversation creation and messaging | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/basic-example) |
-| **Streaming** | Real-time SSE streaming responses | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/streaming-example) |
-| **Branching** | Fork conversations and explore alternatives | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/branching-example) |
-| **Model Comparison** | Compare GPT-5 vs Claude side-by-side | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/model-comparison) |
+| Example | Description | View Code |
+|---------|-------------|-----------|
+| **Basic Chat** | Simple conversation creation and messaging | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/basic-example) |
+| **Streaming** | Real-time SSE streaming responses | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/streaming-example) |
+| **Branching** | Fork conversations and explore alternatives | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/branching-example) |
+| **Model Comparison** | Compare GPT-5 vs Claude side-by-side | [![View in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/chatroutes/chatroutes-sdk/tree/main/stackblitz/model-comparison) |
 
-> **Note:** You'll need a ChatRoutes API key to run the examples. Get one free at [chatroutes.com](https://chatroutes.com).
+> **Note:** StackBlitz examples are for code reference. Due to CORS limitations, run examples locally for full functionality. See [examples/](examples/) directory.
 
 ### Installation
 
